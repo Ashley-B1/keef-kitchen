@@ -18,3 +18,9 @@
 - #BEC6FF
 - #FE8FE8
 - #FDD1EA
+
+### External Links
+- https://www.instagram.com/thekeefkitchen_/
+- https://www.facebook.com/thekayfkitchen?mibextid=LQQJ4d
+- https://www.tiktok.com/@1stnamechef?_t=8eW7ZhuU5qE&_r=1
+
