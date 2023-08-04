@@ -11,7 +11,7 @@
 ## Color Scheme
 
 ### Main Colors:
-- #40AA12
+- #2CD4C5
 - #E81488
 
 ### Accent colors:
