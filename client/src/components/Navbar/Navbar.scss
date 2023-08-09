@@ -3,7 +3,8 @@
   width: 100vw;
   display: flex;
   justify-content: space-between;
-  // position: fixed;
+  position: static;
+  top: 0;
   padding: 0.5rem;
 
   .left {

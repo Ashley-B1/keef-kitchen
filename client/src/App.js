@@ -8,6 +8,8 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
 import Home from "./pages/Home";
+import CategoriesPage from "./pages/CategoriesPage";
+import ProductsPage from "./pages/ProductsPage";
 
 const Layout = () => {
   return (
@@ -27,7 +29,15 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home />
-      }
+      },
+      {
+        path: '/categories/:id',
+        element: <CategoriesPage />
+      },
+      {
+        path: '/products',
+        element: <ProductsPage />
+      },
     ],
   }
 ]);

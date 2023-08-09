@@ -1,12 +1,12 @@
 # Keef Kitchen
 
 ## Routes
-- "/" - Home/Landing page
+- "/" - Home/Landing page - COMPLETED
 - "/products" - All products available
 - "/products/:id" - Specific product based off of ID
 - "/deals" - Combo offers
-- "/categories" - All categories available
 - "/categories/:id" - Specific category based off of ID
+- "/contact" - Contact page with all the owner's info
 
 ## Color Scheme
 
