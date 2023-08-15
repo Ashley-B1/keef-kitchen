@@ -22,7 +22,9 @@ const Navbar = () => {
               </Link>
             </li>
             <li className="nav-option">Contact</li>
-            <li className="nav-option">About</li>
+            <Link className="link" to="/about">
+              <li className="nav-option">About</li>
+            </Link>
           </ul>
           <div className="icon">
             <ShoppingCartIcon />

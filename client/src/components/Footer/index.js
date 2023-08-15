@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
@@ -11,7 +12,10 @@ const Footer = () => {
   return (
     <div className="footer">
       <div className="left">
-        <h4>Do you have any inquiries? If so please go to the <span>Contact Page</span>!</h4>
+        <h4>
+          Do you have any inquiries? If so please go to the{" "}
+          <span>Contact Page</span>!
+        </h4>
         <div className="footer-items">
           <div className="f-item">
             <h3>Ordering</h3>
@@ -19,7 +23,9 @@ const Footer = () => {
           </div>
           <div className="f-item">
             <h3>Company</h3>
-            <span>About Us</span>
+            <Link className="link" to="/about">
+              <span>About Us</span>
+            </Link>
             <span>Social Responsibility</span>
           </div>
           <div className="f-item">
@@ -27,9 +33,7 @@ const Footer = () => {
             <span>General Inquiries</span>
           </div>
         </div>
-        <span className="copyright">
-            © Copyright 2023. All Rights Reserved
-        </span>
+        <span className="copyright">© Copyright 2023. All Rights Reserved</span>
       </div>
       <div className="right">
         <div className="icons">

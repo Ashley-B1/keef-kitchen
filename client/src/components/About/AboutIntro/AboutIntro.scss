@@ -1,0 +1,32 @@
+.about-intro {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: .6rem .8rem;
+  height: 50vh;
+
+  .b-text {
+    font-family: 'Anton', sans-serif;
+    letter-spacing: .2rem;
+  }
+  
+  .cap {
+    text-transform: uppercase;
+  }
+
+  h6 {
+    font-size: 1.3rem;
+  }
+
+  h2 {
+    font-size: 3.6rem;
+  }
+
+  p {
+    font-size: 1.6rem;
+    width: 75vh;
+  }
+}
