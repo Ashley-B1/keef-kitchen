@@ -18,6 +18,7 @@ const ProductsPage = () => {
     setCategoryId(id);
   };
 
+
   return (
     <div className="products-page">
       <div className="container">
@@ -26,22 +27,21 @@ const ProductsPage = () => {
         </section>
         <div className="product-categories">
           {categories.map((cat) => (
-            <>
+            <div key={cat.id} className="info">
               <section
                 onClick={() => show(cat.id)}
-                key={cat.id}
                 className="cat-toggle"
               >
                 <h4>{cat.name}</h4>
               </section>
               {toggle === cat.id && (
-                <section className="products">
+                <section key={cat.id} className="products">
                   {products.filter((item) => item.categoryId === categoryId).map(filteredProduct => (
                     <ProductCard key={filteredProduct.id} product={filteredProduct} />
                   ))}
                 </section>
               )}
-            </>
+            </div>
           ))}
         </div>
       </div>

@@ -2,10 +2,9 @@
 
 ## Routes
 - "/" - Home/Landing page - COMPLETED
-- "/products" - All products available
+- "/products" - All products available - COMPLETED
 - "/products/:id" - Specific product based off of ID
-- "/deals" - Combo offers
-- "/categories/:id" - Specific category based off of ID
+- "/categories/:id" - Specific category based off of ID - COMPLETED
 - "/contact" - Contact page with all the owner's info
 
 ## Color Scheme

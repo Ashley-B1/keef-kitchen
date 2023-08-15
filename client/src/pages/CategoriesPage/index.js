@@ -26,7 +26,7 @@ const CategoriesPage = () => {
         </div>
         <div className="cat-products">
           <div className="cat-results">
-            <info>
+            <div className="info">
               <span>
                 {
                   products.filter(
@@ -43,7 +43,7 @@ const CategoriesPage = () => {
                   View All
                 </Link>
               </span>
-            </info>
+            </div>
           </div>
           <div className="cat-products-container">
             {products
