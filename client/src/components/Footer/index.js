@@ -14,7 +14,9 @@ const Footer = () => {
       <div className="left">
         <h4>
           Do you have any inquiries? If so please go to the{" "}
-          <span>Contact Page</span>!
+          <Link to="/contact" className="link">
+            <span>Contact Page</span>!
+          </Link>
         </h4>
         <div className="footer-items">
           <div className="f-item">
@@ -30,7 +32,9 @@ const Footer = () => {
           </div>
           <div className="f-item">
             <h3>Contact</h3>
-            <span>General Inquiries</span>
+            <Link to="/contact" className="link">
+              <span>General Inquiries</span>
+            </Link>
           </div>
         </div>
         <span className="copyright">© Copyright 2023. All Rights Reserved</span>
