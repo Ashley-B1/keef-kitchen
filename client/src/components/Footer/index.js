@@ -21,7 +21,9 @@ const Footer = () => {
         <div className="footer-items">
           <div className="f-item">
             <h3>Ordering</h3>
-            <span>Shipping & Returns</span>
+            <Link className="link" to="/shipping-and-returns">
+              <span>Shipping & Returns</span>
+            </Link>
           </div>
           <div className="f-item">
             <h3>Company</h3>
@@ -41,10 +43,30 @@ const Footer = () => {
       </div>
       <div className="right">
         <div className="icons">
-          <FacebookIcon />
-          <FaTiktok />
-          <InstagramIcon />
-          <EmailIcon />
+          <a
+            href="https://www.facebook.com/thekayfkitchen?mibextid=LQQJ4d"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <FacebookIcon />
+          </a>
+          <a
+            href="https://www.tiktok.com/@1stnamechef?_t=8eW7ZhuU5qE&_r=1"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaTiktok />
+          </a>
+          <a
+            href="https://www.instagram.com/thekeefkitchen_/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <InstagramIcon />
+          </a>
+          <Link className="link" to="/contact">
+            <EmailIcon />
+          </Link>
         </div>
         <img src="/images/info/payment.jpeg" alt="pay" />
       </div>

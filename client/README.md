@@ -3,9 +3,9 @@
 ## Routes
 - "/" - Home/Landing page - COMPLETED
 - "/products" - All products available - COMPLETED
-- "/products/:id" - Specific product based off of ID
+- "/products/:id" - Specific product based off of ID - COMPLETED
 - "/categories/:id" - Specific category based off of ID - COMPLETED
-- "/contact" - Contact page with all the owner's info
+- "/contact" - Contact page with all the owner's info - COMPLETED
 
 ## Color Scheme
 

@@ -13,6 +13,7 @@ import ProductsPage from "./pages/ProductsPage";
 import ProductPage from "./pages/ProductPage";
 import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage"
+import ReturnsPage from "./pages/ReturnsPage";
 
 const Layout = () => {
   return (
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
       {
         path: '/contact',
         element: <ContactPage />
+      },
+      {
+        path: '/shipping-and-returns',
+        element: <ReturnsPage />
       },
     ],
   }
