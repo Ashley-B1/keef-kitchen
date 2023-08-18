@@ -30,7 +30,6 @@ const Footer = () => {
             <Link className="link" to="/about">
               <span>About Us</span>
             </Link>
-            <span>Social Responsibility</span>
           </div>
           <div className="f-item">
             <h3>Contact</h3>

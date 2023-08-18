@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useRef } from "react";
+import emailjs from "emailjs-com";
 
 import "./ReturnsPage.scss";
 
@@ -34,6 +35,29 @@ const refundReasons = [
 ];
 
 const ReturnsPage = () => {
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        process.env.REACT_APP_REFUND_SERVICE_ID,
+        process.env.REACT_APP_REFUND_TEMPLATE_ID,
+        form.current,
+        process.env.REACT_APP_REFUND_PUBLIC_KEY
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+      e.target.reset();
+  };
+
   return (
     <div className="returns-page">
       <div className="container">
@@ -64,7 +88,7 @@ const ReturnsPage = () => {
         <section className="bottom">
           <section className="refund-form">
             <h5>Refund Requests</h5>
-            <section className="form">
+            <form ref={form} onSubmit={sendEmail} className="form">
               <div className="left">
                 <section className="customer-info">
                   <input
@@ -108,7 +132,7 @@ const ReturnsPage = () => {
               <div className="right">
                 <textarea placeholder="Message" name="message" />
               </div>
-            </section>
+            </form>
           </section>
         </section>
       </div>
