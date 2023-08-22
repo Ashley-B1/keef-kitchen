@@ -18,7 +18,7 @@ const ContactPage = () => {
       )
       .then(
         (result) => {
-          console.log(result.text);
+          alert(result)
         },
         (error) => {
           console.log(error.text);

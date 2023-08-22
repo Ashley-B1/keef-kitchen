@@ -23,26 +23,28 @@ const Slider = ({ images, title }) => {
 
     carousel.current.scrollTo(carousel.current.scrollLeft + width * delta, 0);
 
-    setCount(c => c + delta);
+    setCount((c) => c + delta);
   };
 
   return (
-    <div className="carousel-container">
-      <h2>{title}</h2>
-      <div
-        className="carousel-btn left-btn"
-        onClick={() => incrementCarousel(-1)}
-      ></div>
-      <div
-        className="carousel-btn right-btn"
-        onClick={() => incrementCarousel(1)}
-      ></div>
-      <div className="carousel" ref={carousel}>
-        {images.map((feat) => (
-          <div key={feat.id} className="carousel-item">
-            <img src={feat.img} alt={feat.desc} />
-          </div>
-        ))}
+    <div className="carousel">
+      <div className="carousel-container">
+        <h2>{title}</h2>
+        <div
+          className="carousel-btn left-btn"
+          onClick={() => incrementCarousel(-1)}
+        ></div>
+        <div
+          className="carousel-btn right-btn"
+          onClick={() => incrementCarousel(1)}
+        ></div>
+        <div className="carousel" ref={carousel}>
+          {images.map((feat) => (
+            <div key={feat.id} className="carousel-item">
+              <img src={feat.img} alt={feat.desc} />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

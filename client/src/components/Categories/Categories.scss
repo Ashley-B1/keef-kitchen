@@ -77,4 +77,16 @@
     }
   }
 
+  @media (max-width: 600px) {
+    .products-container {
+
+      .product-cat {
+        width: 90vw;
+
+        p {
+          width: 50%;
+        }
+      }
+    }
+  }
 }

@@ -33,9 +33,9 @@ const ProductPage = () => {
         <div className="more-products">
           <h2>Want to shop more products?</h2>
           <button>
-          <Link to="/products" className="link">
-            Shop All Products
-          </Link>
+            <Link to="/products" className="link">
+              Shop All Products
+            </Link>
           </button>
         </div>
       </div>

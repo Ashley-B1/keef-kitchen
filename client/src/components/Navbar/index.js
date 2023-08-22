@@ -6,6 +6,12 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import "./Navbar.scss";
 
 const Navbar = () => {
+  // const [menuOpen, setMenuOpen] = useState(false);
+
+  // const toggleMenu = () => {
+  //   setMenuOpen(!menuOpen);
+  // };
+
   return (
     <div className="navbar">
       <div className="left">
@@ -13,7 +19,12 @@ const Navbar = () => {
           <img id="logo" src="/images/info/logo.jpeg" alt="logo" />
         </Link>
       </div>
-      <div className="right">
+      <div className={`right`}> {/*  ${menuOpen ? "open" : ""} */}
+        {/* <div className="toggle-button" onClick={toggleMenu}>
+          <div className={`bar ${menuOpen ? "open" : ""}`}></div>
+          <div className={`bar ${menuOpen ? "open" : ""}`}></div>
+          <div className={`bar ${menuOpen ? "open" : ""}`}></div>
+        </div> */}
         <div className="wrapper">
           <ul className="nav-options">
             <li className="nav-option">
@@ -29,10 +40,10 @@ const Navbar = () => {
             <Link className="link" to="/about">
               <li className="nav-option">About</li>
             </Link>
+            <li className="nav-option">
+              <ShoppingCartIcon />
+            </li>
           </ul>
-          <div className="icon">
-            <ShoppingCartIcon />
-          </div>
         </div>
       </div>
     </div>
