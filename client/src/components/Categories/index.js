@@ -17,9 +17,11 @@ const Categories = ({ data }) => {
           </Link>
         ))}
       </div>
-      <Link className="link" to="/products">
-        <button>All Products</button>
-      </Link>
+      <div className="prod-btn">
+        <Link className="link" to="/products">
+          <button>All Products</button>
+        </Link>
+      </div>
     </div>
   );
 };

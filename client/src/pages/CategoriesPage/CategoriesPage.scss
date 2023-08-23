@@ -13,41 +13,40 @@
       display: flex;
       align-items: center;
       justify-content: center;
-  
+
       * {
         background-color: #bec6ff;
       }
-  
+
       h3 {
         font-weight: 600;
         color: #000;
       }
     }
-  
+
     .cat-products {
       display: flex;
       flex-direction: column;
-      
+
       .cat-results {
         display: flex;
         justify-content: flex-end;
-        padding: .4rem 1rem;
+        padding: 0.4rem 1rem;
         margin-right: 3rem;
-        
-        
+
         span {
           font-size: 1.2rem;
-          padding: .3rem .5rem;
-          
+          padding: 0.3rem 0.5rem;
+
           &:nth-child(2) {
             font-weight: 500;
             text-transform: uppercase;
             cursor: pointer;
-            color: #BEC6FF;
+            color: #bec6ff;
           }
         }
       }
-      
+
       .cat-products-container {
         margin-top: 4.3rem;
         width: 70%;
@@ -56,9 +55,8 @@
         justify-content: space-between;
         align-self: center;
       }
-  
     }
-  
+
     .more-products {
       display: flex;
       flex-direction: column;
@@ -66,29 +64,57 @@
       justify-content: center;
       width: 70%;
       align-self: center;
-      background-color: #FE8FE8;
+      background-color: #fe8fe8;
       margin: 2.3rem 0;
-      padding: .8rem 1.2rem;
+      padding: 0.8rem 1.2rem;
       height: 20vh;
-      
+
       * {
-        background-color: #FE8FE8;
+        background-color: #fe8fe8;
       }
 
       h3 {
         font-size: 2rem;
         font-weight: 500;
-        padding: .8rem .3rem;
+        padding: 0.8rem 0.3rem;
       }
 
       button {
         border: 2px solid #fff;
         font-size: 1.3rem;
         text-transform: uppercase;
-        padding: .3rem 1.8rem;
+        padding: 0.3rem 1.8rem;
         cursor: pointer;
       }
     }
   }
+}
 
+@media (max-width: 600px) {
+  .category-page {
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+
+    .container {
+      width: 100%;
+      align-items: center;
+
+      .cat-banner {
+        width: 90vw;
+      }
+
+      .cat-products {
+        align-items: center;
+
+        .cat-products-container {
+          width: 90vw;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+
+    }
+  }
 }

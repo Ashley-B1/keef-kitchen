@@ -27,7 +27,7 @@ const Slider = ({ images, title }) => {
   };
 
   return (
-    <div className="carousel">
+    <div className="c-wrapper">
       <div className="carousel-container">
         <h2>{title}</h2>
         <div

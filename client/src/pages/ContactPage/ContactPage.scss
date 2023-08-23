@@ -1,5 +1,5 @@
 .contact-page {
-  height: 100vh;
+  height: fit-content;
   background-color: #BEC6FF;
   padding: 50px;
   display: flex;
@@ -76,12 +76,13 @@
       
       .bottom {
         flex: 4;
+        margin-bottom: 1.2rem;
         
         .field {
           height: 100%;
 
           textarea {
-            height: 80%;
+            height: 250px;
             resize: none;
           }
         }
@@ -102,6 +103,36 @@
           transition: ease-in .5s;
           background-color: #FDD1EA;
           color: #000;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 600px) {
+    padding: 1.5rem;
+
+    .container {
+      width: 95%;
+
+      .intro {        
+        .b-text {
+          font-size: 2.3rem;
+        }
+        
+        p {
+          font-size: 1.2rem;
+          width: 100%;
+          margin-top: .5rem;
+        }
+      }
+      
+      .form {
+        .top {
+          flex-direction: column;
+
+          .field {
+            width: 100%;
+          }
         }
       }
     }

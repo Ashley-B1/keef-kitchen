@@ -19,7 +19,9 @@ const Navbar = () => {
           <img id="logo" src="/images/info/logo.jpeg" alt="logo" />
         </Link>
       </div>
-      <div className={`right`}> {/*  ${menuOpen ? "open" : ""} */}
+      <div className={`right`}>
+        {" "}
+        {/*  ${menuOpen ? "open" : ""} */}
         {/* <div className="toggle-button" onClick={toggleMenu}>
           <div className={`bar ${menuOpen ? "open" : ""}`}></div>
           <div className={`bar ${menuOpen ? "open" : ""}`}></div>
@@ -37,9 +39,11 @@ const Navbar = () => {
                 Contact
               </Link>
             </li>
-            <Link className="link" to="/about">
-              <li className="nav-option">About</li>
-            </Link>
+            <li className="nav-option">
+              <Link className="link" to="/about">
+                About
+              </Link>
+            </li>
             <li className="nav-option">
               <ShoppingCartIcon />
             </li>

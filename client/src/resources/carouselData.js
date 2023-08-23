@@ -6,7 +6,7 @@ const featuredImages = [
   },
   {
     id: 2,
-    img: "/images/info/boxes.jpeg",
+    img: "/images/info/candy-packaging.jpeg",
     desc: "Packages"
   },
   {

@@ -9,6 +9,8 @@
 
   .left {
     margin-left: 2rem;
+    width: 50%;
+    background: transparent;
 
     img {
       width: 100px;
@@ -21,16 +23,18 @@
     align-items: center;
     background-color: #2cd4c5;
     margin-right: 0.7rem;
+    width: 30%;
 
     * {
       background-color: #2cd4c5;
     }
-
+    
     .wrapper {
+      width: 100%;
       display: flex;
       align-items: center;
       margin-right: 3rem;
-
+      
       .nav-options {
         display: flex;
         list-style-type: none;
@@ -52,6 +56,10 @@
           }
         }
       }
+
+      // @media(max-width: 600px) {
+      //   overflow: hidden;
+      // }
     }
 
     // .toggle-button {

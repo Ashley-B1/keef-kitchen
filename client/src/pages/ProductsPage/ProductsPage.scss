@@ -64,4 +64,30 @@
       }
     }
   }
+
+  @media (max-width: 600px) {
+    width: 100vw;
+
+    .container {
+      width: 100vw;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .product-banner {
+        width: 90%;
+      }
+
+      .product-categories {
+        width: 90%;
+        text-align: center;
+        
+        .products {
+          width: 90vw;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+    }
+  }
 }
