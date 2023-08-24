@@ -1,56 +1,48 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, NavLink } from "react-router-dom";
 
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 import "./Navbar.scss";
 
-const Navbar = () => {
-  // const [menuOpen, setMenuOpen] = useState(false);
+const logo = "/images/info/logo.jpeg";
 
-  // const toggleMenu = () => {
-  //   setMenuOpen(!menuOpen);
-  // };
+const Navbar = () => {
+  const [menuOpen, setMenuOpen] = useState(false)
 
   return (
-    <div className="navbar">
-      <div className="left">
-        <Link to="/" className="link">
-          <img id="logo" src="/images/info/logo.jpeg" alt="logo" />
-        </Link>
+    <nav className="navbar">
+      <Link className="link" to="/">
+        <img src={logo} alt="logo" />
+      </Link>
+      <div className="menu" onClick={() => {
+        setMenuOpen(!menuOpen)
+      }}>
+        <span></span>
+        <span></span>
+        <span></span>
       </div>
-      <div className={`right`}>
-        {" "}
-        {/*  ${menuOpen ? "open" : ""} */}
-        {/* <div className="toggle-button" onClick={toggleMenu}>
-          <div className={`bar ${menuOpen ? "open" : ""}`}></div>
-          <div className={`bar ${menuOpen ? "open" : ""}`}></div>
-          <div className={`bar ${menuOpen ? "open" : ""}`}></div>
-        </div> */}
-        <div className="wrapper">
-          <ul className="nav-options">
-            <li className="nav-option">
-              <Link className="link" to="/products">
-                Products
-              </Link>
-            </li>
-            <li className="nav-option">
-              <Link to="/contact" className="link">
-                Contact
-              </Link>
-            </li>
-            <li className="nav-option">
-              <Link className="link" to="/about">
-                About
-              </Link>
-            </li>
-            <li className="nav-option">
-              <ShoppingCartIcon />
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
+      <ul className={menuOpen && "open"}>
+        <li>
+          <NavLink className="link" to="/products">
+            Products
+          </NavLink>
+        </li>
+        <li>
+          <NavLink className="link" to="/about">
+            About
+          </NavLink>
+        </li>
+        <li>
+          <NavLink className="link" to="/contact">
+            Contact
+          </NavLink>
+        </li>
+        <li>
+          <ShoppingCartIcon />
+        </li>
+      </ul>
+    </nav>
   );
 };
 
