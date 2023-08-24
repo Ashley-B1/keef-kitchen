@@ -29,4 +29,21 @@
     font-size: 1.6rem;
     width: 75vh;
   }
+
+  @media (max-width: 600px) {
+    height: fit-content;
+
+    * {
+      margin-bottom: .5rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+      width: 100%;
+    }
+  }
 }

@@ -174,4 +174,94 @@
       }
     }
   }
+
+  @media (max-width: 600px) {
+    padding: 0 .8rem;
+
+    .container {
+
+      .intro {
+        padding: .8rem;
+        text-align: center;
+
+        h3 {
+          font-size: 2.1rem;
+        }
+      }
+
+      .top {
+        h4 {
+          width: 100%;
+        }
+
+        .ship-info {
+          p {
+            font-size: 1.1rem;
+          }
+        }
+
+        .return-info {
+          font-size: .9rem;
+  
+          li::marker {
+            font-size: .8rem;
+          }
+        }
+
+        h5 {
+          font-size: .8rem;
+        }
+      }
+
+      .bottom {
+        .refund-form {
+
+          h5 {
+            text-align: center;
+            width: 100%;
+            margin-bottom: .5rem;
+          }
+
+          .form {
+            height: fit-content;
+            flex-direction: column-reverse;
+
+            .left {
+
+              .customer-info {
+                height: fit-content;
+
+                input {
+                  margin-bottom: .5rem;
+                }
+              }
+
+              .refund-info {
+                height: fit-content;
+
+                .reason {
+                  select {
+                    width: 100%;
+                    font-size: .8rem;
+                    margin-bottom: 1rem;
+                  }
+                }
+              }
+            }
+
+            .right {
+              textarea {
+                width: 80%;
+
+                &::placeholder {
+                  font-size: .8rem;
+                }
+              }
+            }
+
+          }
+        }
+      }
+    }
+  }
 }

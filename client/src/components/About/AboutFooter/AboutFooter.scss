@@ -38,8 +38,18 @@
           transition: ease-in .5s;
         }
       }
-
     }
+  }
 
+  @media (max-width: 600px) {
+    padding: .5rem .25rem;
+
+    section {
+      width: 100%;
+
+      h3 {
+        width: 100%;
+      }
+    }
   }
 }

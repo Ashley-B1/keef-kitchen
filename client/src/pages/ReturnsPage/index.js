@@ -130,7 +130,7 @@ const ReturnsPage = () => {
                 <button type="submit">Send</button>
               </div>
               <div className="right">
-                <textarea placeholder="Message" name="message" />
+                <textarea placeholder="Explain why you would like a refund..." name="message" />
               </div>
             </form>
           </section>

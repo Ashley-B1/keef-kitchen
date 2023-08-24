@@ -114,7 +114,16 @@
           align-items: center;
         }
       }
+      
+      .more-products {
+        width: 85vw;
+        height: fit-content;
+        text-align: center;
 
+        h3 {
+          font-size: 1.75rem;
+        }
+      }
     }
   }
 }
