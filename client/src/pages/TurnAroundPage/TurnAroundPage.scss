@@ -1,0 +1,40 @@
+.turnaround-page {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 60%;
+    height: 60%;
+
+    img {
+      width: 200px;
+      height: 200px;
+    }
+
+    h4 {
+      font-weight: 400;
+      font-size: 1.4rem;
+      color: #d2dcd5;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .wrapper {
+      width: 90vw;
+      height: 90vh;
+
+      h4 {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  }
+
+}

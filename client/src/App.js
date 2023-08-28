@@ -1,7 +1,8 @@
 import {
   createBrowserRouter,
   RouterProvider,
-  Outlet
+  Outlet,
+  useLocation
 } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
@@ -14,13 +15,18 @@ import ProductPage from "./pages/ProductPage";
 import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage"
 import ReturnsPage from "./pages/ReturnsPage";
+import TurnAroundPage from "./pages/TurnAroundPage";
 
 const Layout = () => {
+  const location = useLocation();
+
+  const isTurnAroundPage = location.pathname === '/turnaround';
+
   return (
     <>
-      <Navbar />
+      {!isTurnAroundPage && <Navbar />}
       <Outlet />
-      <Footer />
+      {!isTurnAroundPage && <Footer />}
     </>
   );
 };
@@ -57,6 +63,10 @@ const router = createBrowserRouter([
       {
         path: '/shipping-and-returns',
         element: <ReturnsPage />
+      },
+      {
+        path: '/turnaround',
+        element: <TurnAroundPage />
       },
     ],
   }
