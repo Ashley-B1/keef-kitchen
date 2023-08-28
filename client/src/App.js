@@ -16,6 +16,7 @@ import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage"
 import ReturnsPage from "./pages/ReturnsPage";
 import TurnAroundPage from "./pages/TurnAroundPage";
+import NotFoundPage from "./pages/NotFoundPage";
 
 const Layout = () => {
   const location = useLocation();
@@ -67,6 +68,10 @@ const router = createBrowserRouter([
       {
         path: '/turnaround',
         element: <TurnAroundPage />
+      },
+      {
+        path: '*',
+        element: <NotFoundPage />
       },
     ],
   }

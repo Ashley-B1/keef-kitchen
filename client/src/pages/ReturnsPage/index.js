@@ -1,5 +1,7 @@
 import React, { useRef } from "react";
 import emailjs from "emailjs-com";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import "./ReturnsPage.scss";
 
@@ -40,6 +42,19 @@ const ReturnsPage = () => {
   const sendEmail = (e) => {
     e.preventDefault();
 
+    const name = form.current.name.value;
+    const email = form.current.email.value;
+    const orderNumber = form.current["order-number"].value;
+    const date = form.current.date.value;
+    const refundItems = form.current["refund-items"].value;
+    const reason = form.current.reason.value;
+    const msg = form.current.msg.value;
+
+    if (!name || !email || !orderNumber || !date || !refundItems || !reason || !msg) {
+      toast.error("Please fill out all fields.");
+      return;
+    }
+
     emailjs
       .sendForm(
         process.env.REACT_APP_REFUND_SERVICE_ID,
@@ -49,10 +64,11 @@ const ReturnsPage = () => {
       )
       .then(
         (result) => {
-          console.log(result.text);
+          toast.success("Email was sent successfully!");
         },
         (error) => {
-          console.log(error.text);
+          toast.error(error.text);
+          return;
         }
       );
       e.target.reset();
@@ -130,7 +146,7 @@ const ReturnsPage = () => {
                 <button type="submit">Send</button>
               </div>
               <div className="right">
-                <textarea placeholder="Explain why you would like a refund..." name="message" />
+                <textarea placeholder="Explain why you would like a refund..." name="msg" />
               </div>
             </form>
           </section>

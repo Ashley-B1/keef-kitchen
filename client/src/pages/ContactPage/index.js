@@ -1,5 +1,7 @@
 import React, { useRef } from "react";
 import emailjs from "emailjs-com";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import "./ContactPage.scss";
 
@@ -8,6 +10,15 @@ const ContactPage = () => {
 
   const sendEmail = (e) => {
     e.preventDefault();
+
+    const name = form.current.name.value;
+    const email = form.current.email.value;
+    const msg = form.current.msg.value;
+
+    if (!name || !email || !msg) {
+      toast.error("Please fill out all fields.")
+      return;
+    }
 
     emailjs
       .sendForm(
@@ -18,10 +29,11 @@ const ContactPage = () => {
       )
       .then(
         (result) => {
-          alert(result)
+          toast.success("Email was sent successfully!");
         },
         (error) => {
-          console.log(error.text);
+          toast.error(error.text);
+          return;
         }
       );
       e.target.reset();
