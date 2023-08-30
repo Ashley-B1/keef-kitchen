@@ -1,7 +1,7 @@
 const categories = [
   {
     id: 1,
-    name: "Sweets",
+    name: "Candy",
     bgImg: "/images/candy/nerds-candy.jpeg"
   }, 
   {
@@ -11,7 +11,7 @@ const categories = [
   }, 
   {
     id: 3,
-    name: "Deals",
+    name: "Specials",
     bgImg: "/images/baked-goods/combo-box.jpeg"
   }, 
   {

@@ -4,7 +4,7 @@ import "./ProductsPage.scss";
 
 import ProductCard from "../../components/ProductCard";
 
-import { products } from "../../resources/products";
+import { keefProducts } from "../../resources/keefProducts";
 import categories from "../../resources/categoryData";
 
 const ProductsPage = () => {
@@ -36,7 +36,7 @@ const ProductsPage = () => {
               </section>
               {toggle === cat.id && (
                 <section key={cat.id} className="products">
-                  {products.filter((item) => item.categoryId === categoryId).map(filteredProduct => (
+                  {keefProducts.filter((item) => item.categoryId === categoryId).map(filteredProduct => (
                     <ProductCard key={filteredProduct.id} product={filteredProduct} />
                   ))}
                 </section>

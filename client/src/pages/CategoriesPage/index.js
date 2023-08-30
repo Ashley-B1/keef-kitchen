@@ -4,7 +4,7 @@ import { useParams, Link } from "react-router-dom";
 import "./CategoriesPage.scss";
 import ProductCard from "../../components/ProductCard";
 
-import { products } from "../../resources/products";
+import { keefProducts } from "../../resources/keefProducts";
 import categories from "../../resources/categoryData";
 
 const CategoriesPage = () => {
@@ -29,11 +29,11 @@ const CategoriesPage = () => {
             <div className="info">
               <span>
                 {
-                  products.filter(
+                  keefProducts.filter(
                     (product) => product.categoryId === categoryId
                   ).length
                 }{" "}
-                {products.filter((product) => product.categoryId === categoryId)
+                {keefProducts.filter((product) => product.categoryId === categoryId)
                   .length > 1
                   ? `Results`
                   : `Result`}
@@ -46,7 +46,7 @@ const CategoriesPage = () => {
             </div>
           </div>
           <div className="cat-products-container">
-            {products
+            {keefProducts
               .filter((product) => product.categoryId === categoryId)
               .map((filteredProduct) => (
                 <ProductCard
