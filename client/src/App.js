@@ -5,6 +5,8 @@ import {
   useLocation
 } from "react-router-dom";
 
+import CartProvider from "./context/CartContext"
+
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
@@ -79,9 +81,9 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <>
+    <CartProvider>
       <RouterProvider router={router} />
-    </>
+    </CartProvider>
   );
 }
 

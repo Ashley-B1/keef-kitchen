@@ -1,13 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useParams, Link } from "react-router-dom";
 
 import { keefProducts } from "../../resources/keefProducts";
 import categories from "../../resources/categoryData";
+import { CartContext } from "../../context/CartContext"
 
 import "./ProductPage.scss";
 
 const ProductPage = () => {
   const { id } = useParams();
+
+  const cart = useContext(CartContext);
 
   const selectedProduct = keefProducts.find(
     (product) => product.id === Number(id)
@@ -15,6 +18,8 @@ const ProductPage = () => {
   const category = categories.find(
     (cat) => cat.id === selectedProduct.categoryId
   );
+
+  // const productQuantity = cart.getProductQuantity(selectedProduct.id)
 
   const [selectedOption, setSelectedOption] = useState(
     selectedProduct.options[0]
@@ -36,7 +41,7 @@ const ProductPage = () => {
   const handleOptionChange = (option) => {
     setSelectedOption(option);
     setSelectedFlavors([]);
-    setSelectedChoiceFlavors([])
+    setSelectedChoiceFlavors([]);
     setSelectedPrice(option.price || selectedProduct.price);
 
     if (option.name === "multiple") {
@@ -54,13 +59,15 @@ const ProductPage = () => {
     }
   };
 
-  const handleChoiceFlavorToggle = flavor => {
+  const handleChoiceFlavorToggle = (flavor) => {
     if (selectedChoiceFlavors.includes(flavor)) {
-      setSelectedChoiceFlavors(selectedChoiceFlavors.filter((fl) => fl !== flavor));
+      setSelectedChoiceFlavors(
+        selectedChoiceFlavors.filter((fl) => fl !== flavor)
+      );
     } else {
       setSelectedChoiceFlavors([...selectedChoiceFlavors, flavor]);
     }
-  }
+  };
 
   const handleQuantityChange = (e) => {
     setQuantity(e.target.value);
@@ -86,30 +93,36 @@ const ProductPage = () => {
               <div className="options">
                 <h4>Options:</h4>
                 {selectedProduct.options.map((option) => (
-                  <label key={option.id}>
+                  <span className="opt">
                     <input
                       type="radio"
                       name="options"
+                      checked={selectedOption === option}
                       value={option.id}
                       onChange={() => handleOptionChange(option)}
                     />
-                    {option.name}
-                  </label>
+                    <label key={option.id}>{option.name}</label>
+                  </span>
                 ))}
               </div>
               {selectedOption.flavors && (
                 <div className="flavors">
                   <h4>Flavors:</h4>
                   {selectedOption?.flavors.map((flavor) => (
-                    <label key={flavor}>
+                    <span className="flav">
                       <input
-                        type={selectedOption.name === "cheesecake" ? "checkbox" : "radio"}
+                        type={
+                          selectedOption.name === "cheesecake" || "donuts"
+                            ? "radio"
+                            : "checkbox"
+                        }
+                        name="flavors"
                         value={flavor}
                         checked={selectedFlavors.includes(flavor)}
                         onChange={() => handleFlavorToggle(flavor)}
                       />
-                      {flavor}
-                    </label>
+                      <label key={flavor}>{flavor}</label>
+                    </span>
                   ))}
                 </div>
               )}
@@ -117,30 +130,40 @@ const ProductPage = () => {
                 <div className="choices">
                   <h4>Choices:</h4>
                   {selectedOption.choices.map((choice) => (
-                    <label key={choice.id}>
+                    <span>
                       <input
                         type="radio"
                         value={choice.id}
                         name="choices"
+                        checked={selectedChoice === choice}
                         onChange={() => handleChoiceChange(choice)}
                       />
-                      {choice.name}
-                    </label>
+                      <label key={choice.id}>{choice.name}</label>
+                    </span>
                   ))}
                 </div>
               )}
               {selectedChoice && selectedChoice.flavors && (
                 <div className="choice-flavors">
+                  <h4>Second Flavor</h4>
                   {selectedChoice.flavors.map((sf) => (
-                    <label key={sf}>
+                    <span>
                       <input
-                        type={selectedChoice.name === "brownie pan" ? "radio" : "checkbox"}
+                      name="sf"
+                        type={
+                          selectedChoice.name === "brownie pan" || "cupcake"
+                            ? "radio"
+                            : "checkbox"
+                        }
                         value={sf}
                         checked={selectedChoiceFlavors.includes(sf)}
                         onChange={() => handleChoiceFlavorToggle(sf)}
                       />
+                    <label key={sf}>
                       {sf}
                     </label>
+
+                    </span>
                   ))}
                 </div>
               )}
@@ -149,13 +172,13 @@ const ProductPage = () => {
                 <input
                   type="number"
                   value={quantity}
-                  max={selectedOption.name === "single" && 1}
+                  max={selectedOption.name === "single" && selectedProduct === "Nerds Ropes" && 1}
                   min={selectedOption.name === "multiple" ? 2 : 1}
                   onChange={handleQuantityChange}
                 />
               </div>
             </div>
-            <button>Add To Cart</button>
+            <button onClick={() => cart.addOneToCart(selectedProduct.id)}>Add To Cart</button>
           </div>
         </div>
         <div className="more-products">

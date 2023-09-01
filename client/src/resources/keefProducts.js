@@ -98,11 +98,14 @@ const keefProducts = [
         id: 1,
         name: "3 cookies",
         flavors: ["chocolate chip", "strawberry", "oreo"],
-      },
-      {
-        id: 2,
-        name: "cupcake",
-        flavors: ["vanilla", "strawberry", "red velvet"],
+        choices: [
+          {
+            id: 1,
+            name: "cupcake",
+            flavors: ["vanilla", "strawberry", "red velvet"],
+          },
+
+        ],
       },
     ],
     img: "/images/baked-goods/combo-box.jpeg",
@@ -142,8 +145,8 @@ const keefProducts = [
     options: [
       {
         id: 1,
-        name: "Dozen Cookies",
-        flavors: ["chocolate chip", "strawberry", "oreo"],
+        name: "Dozen Cupcakes",
+        flavors: ["vanilla", "strawberry", "red velvet"],
         choices: [
           {
             id: 1,
@@ -327,5 +330,18 @@ const keefProducts = [
   }
 ];
 
+const getProductData = id => {
+  let selectedProduct;
 
-export { keefProducts };
+  keefProducts.find(product => {
+    if (product.id === id) {
+      selectedProduct = product;
+      return selectedProduct;
+    }
+
+    return "Product not found"
+  })
+};
+
+
+export { keefProducts, getProductData };
