@@ -3,7 +3,7 @@ import { useParams, Link } from "react-router-dom";
 
 import { keefProducts } from "../../resources/keefProducts";
 import categories from "../../resources/categoryData";
-import { CartContext } from "../../context/CartContext"
+import { CartContext } from "../../context/CartContext";
 
 import "./ProductPage.scss";
 
@@ -19,8 +19,6 @@ const ProductPage = () => {
     (cat) => cat.id === selectedProduct.categoryId
   );
 
-  // const productQuantity = cart.getProductQuantity(selectedProduct.id)
-
   const [selectedOption, setSelectedOption] = useState(
     selectedProduct.options[0]
   );
@@ -33,6 +31,11 @@ const ProductPage = () => {
   const [selectedChoice, setSelectedChoice] = useState(
     selectedOption.choices && selectedOption.choices[0]
   );
+
+  const handleAddToCart = () => {
+    cart.addToCart(selectedProduct.id, parseInt(quantity, 10), selectedPrice, selectedOption, selectedFlavors, selectedChoice, selectedChoiceFlavors);
+  };
+
 
   const handleChoiceChange = (choice) => {
     setSelectedChoice(choice);
@@ -76,6 +79,17 @@ const ProductPage = () => {
   const totalPrice = () => {
     const optionPrice = selectedPrice || 0;
     return optionPrice * quantity;
+
+    // console.log("Selected Option:", selectedOption);
+    // console.log("Quantity:", quantity);
+
+    // if (selectedOption && quantity > 0) {
+    //   console.log("Calculating price...");
+    //   console.log(selectedOption?.price * quantity)
+    //   return selectedOption?.price * quantity;
+    // }
+
+    // return 0;
   };
 
   return (
@@ -92,8 +106,8 @@ const ProductPage = () => {
               <h5>${totalPrice()}</h5>
               <div className="options">
                 <h4>Options:</h4>
-                {selectedProduct.options.map((option) => (
-                  <span className="opt">
+                {selectedProduct.options.map((option, i) => (
+                  <span key={i} className="opt">
                     <input
                       type="radio"
                       name="options"
@@ -108,8 +122,8 @@ const ProductPage = () => {
               {selectedOption.flavors && (
                 <div className="flavors">
                   <h4>Flavors:</h4>
-                  {selectedOption?.flavors.map((flavor) => (
-                    <span className="flav">
+                  {selectedOption?.flavors.map((flavor, i) => (
+                    <span key={i} className="flav">
                       <input
                         type={
                           selectedOption.name === "cheesecake" || "donuts"
@@ -129,8 +143,8 @@ const ProductPage = () => {
               {selectedOption.choices && (
                 <div className="choices">
                   <h4>Choices:</h4>
-                  {selectedOption.choices.map((choice) => (
-                    <span>
+                  {selectedOption.choices.map((choice, i) => (
+                    <span key={i}>
                       <input
                         type="radio"
                         value={choice.id}
@@ -146,10 +160,10 @@ const ProductPage = () => {
               {selectedChoice && selectedChoice.flavors && (
                 <div className="choice-flavors">
                   <h4>Second Flavor</h4>
-                  {selectedChoice.flavors.map((sf) => (
-                    <span>
+                  {selectedChoice.flavors.map((sf, i) => (
+                    <span key={i}>
                       <input
-                      name="sf"
+                        name="sf"
                         type={
                           selectedChoice.name === "brownie pan" || "cupcake"
                             ? "radio"
@@ -159,10 +173,7 @@ const ProductPage = () => {
                         checked={selectedChoiceFlavors.includes(sf)}
                         onChange={() => handleChoiceFlavorToggle(sf)}
                       />
-                    <label key={sf}>
-                      {sf}
-                    </label>
-
+                      <label key={sf}>{sf}</label>
                     </span>
                   ))}
                 </div>
@@ -172,13 +183,20 @@ const ProductPage = () => {
                 <input
                   type="number"
                   value={quantity}
-                  max={selectedOption.name === "single" && selectedProduct === "Nerds Ropes" && 1}
+                  max={
+                    selectedOption.name === "single" &&
+                    selectedProduct === "Nerds Ropes"
+                      ? 1
+                      : ""
+                  }
                   min={selectedOption.name === "multiple" ? 2 : 1}
                   onChange={handleQuantityChange}
                 />
               </div>
             </div>
-            <button onClick={() => cart.addOneToCart(selectedProduct.id)}>Add To Cart</button>
+            <button onClick={handleAddToCart}>
+              Add To Cart
+            </button>
           </div>
         </div>
         <div className="more-products">

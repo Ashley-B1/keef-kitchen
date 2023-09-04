@@ -1,5 +1,5 @@
-import { createContext, useState } from "react";
-import { getProductData } from "../resources/keefProducts";
+import { createContext, useState, useEffect } from "react";
+// import { getProductData } from "../resources/keefProducts";
 
 export const CartContext = createContext({
   items: [],
@@ -11,7 +11,13 @@ export const CartContext = createContext({
 });
 
 export const CartProvider = ({ children }) => {
-  const [cartProducts, setCartProducts] = useState([]);
+    const initialCart = JSON.parse(localStorage.getItem('cart')) || [];
+
+  const [cartProducts, setCartProducts] = useState(initialCart);
+
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cartProducts));
+  }, [cartProducts])
 
   const getProductQuantity = (id) => {
     const quantity = cartProducts.find(
@@ -25,19 +31,17 @@ export const CartProvider = ({ children }) => {
     return quantity;
   };
 
-  const addOneToCart = (id) => {
-    const quantity = getProductQuantity(id);
-
-    if (!quantity) {
-      setCartProducts([...cartProducts, { id, quantity: 1 }]);
+  const addToCart = (id, quantity, price, option, flavor, choice, choiceFlavor) => {
+    quantity = parseInt(quantity, 10);
+  
+    const existingProductIndex = cartProducts.findIndex((product) => product.id === id);
+  
+    if (existingProductIndex === -1) {
+      setCartProducts([...cartProducts, { id, quantity, price, option, flavor, choice, choiceFlavor }]);
     } else {
-      setCartProducts(
-        cartProducts.map((product) => {
-          return product.id === id
-            ? { ...product, quantity: product.quantity + 1 }
-            : product;
-        })
-      );
+      const updatedCart = [...cartProducts];
+      updatedCart[existingProductIndex].quantity += quantity;
+      setCartProducts(updatedCart);
     }
   };
 
@@ -68,27 +72,24 @@ export const CartProvider = ({ children }) => {
   const getTotalCost = () => {
     let totalCost = 0;
 
-    cartProducts.map((item) => {
-      const productData = getProductData(item.id);
-      totalCost += Number(productData.price) * item.quantity;
+    cartProducts.forEach(item => {
+      totalCost += item.price * item.quantity;
     });
 
-    return totalCost;
+    return totalCost.toFixed(2);
   };
 
   const contextValue = {
     items: cartProducts,
     getProductQuantity,
-    addOneToCart,
+    addToCart,
     removeOneFromCart,
     deleteFromCart,
-    getTotalCost
+    getTotalCost,
   };
 
   return (
-    <CartContext.Provider value={contextValue}>
-      {children}
-    </CartContext.Provider>
+    <CartContext.Provider value={contextValue}>{children}</CartContext.Provider>
   );
 };
 

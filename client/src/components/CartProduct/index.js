@@ -1,20 +1,45 @@
-import React, { useContext } from 'react';
+import React, { useContext } from "react";
 
 import { CartContext } from "../../context/CartContext";
-import { getProductData } from '../../resources/keefProducts';
+import { getProductData } from "../../resources/keefProducts";
 
-const CartProduct = ({ id, quantity }) => {
+import "./CartProduct.scss";
+
+const CartProduct = ({
+  id,
+  quantity,
+  price,
+  option,
+  flavor,
+  choice,
+  choiceFlavor,
+}) => {
   const cart = useContext(CartContext);
   const productData = getProductData(id);
 
   return (
-    <>
+    <div className="mo-products">
       <h3>{productData.name}</h3>
       <p>{quantity === 1 ? `${quantity} item` : `${quantity} items`}</p>
-      {/* <p>${(quantity * price)}</p> */}
-      <button onClick={() => cart.deleteFromCart(id)}>Remove</button>
-    </>
-  )
-}
+      <p>{option} {flavor.length ? `(${flavor})` : ""}</p>
+      {choice && (
+        <>
+        <p>And:</p>
+        <p>{choice} {choiceFlavor ? `(${choiceFlavor})` : ""}</p>
+        </>
+      )}
+      <div className="price-adjust">
+        <button className="minus" onClick={() => cart.removeOneFromCart(id)}>-</button>
+        <p>
+          ${productData.price ? quantity * productData.price : quantity * price}
+        </p>
+        <button className="add" onClick={() => cart.addToCart(id, 1)}>+</button>
+      </div>
+      <div className="modal-btns">
+        <button onClick={() => cart.deleteFromCart(id)}>Remove</button>
+      </div>
+    </div>
+  );
+};
 
-export default CartProduct
+export default CartProduct;

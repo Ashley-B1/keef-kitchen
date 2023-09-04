@@ -1,0 +1,83 @@
+.mo-products {
+  border-bottom: solid #dad4e4 1px;
+  padding-bottom: .8rem;
+  margin-top: .5rem;
+
+  h3 {
+    font-weight: 500;
+    font-size: 1.8rem;
+    text-transform: capitalize;
+  }
+
+  p {
+    font-size: 1.1rem;
+    padding: .5rem 0;
+  }
+
+  .price-adjust {
+    display: flex;
+    width: 30%;
+    justify-content: space-between;
+    margin-bottom: .5rem;
+    
+    button {
+      width: 30%;
+      border: 0;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .add {
+      background-color: #E81488;
+
+      &:hover {
+        background-color: #df95bd;
+        color: black;
+        transition: ease-in-out .5s;
+      }
+    }
+
+    .minus {
+      background-color: #a360cf;
+
+      &:hover {
+        color: black;
+        transition: ease-in-out .5s;
+        background-color: #b593cc;
+      }
+    }
+  }
+
+  .modal-btns {
+    width: 20%;
+    display: flex;
+    justify-content: space-between;
+
+
+    button {
+      border: 0;
+      background-color: #FE8FE8;
+      font-size: .9rem;
+      padding: .5rem;
+      border-radius: 5px;
+
+  
+      &:hover {
+        background-color: #BEC6FF;
+        cursor: pointer;
+        transition: ease-in-out .5s;
+        color: #000;;
+      }
+    }
+  }
+
+  @media (max-width: 600px) {
+    .price-adjust {
+      width: 70%;
+    }
+
+    .modal-btns {
+      width: 50%;
+    }
+  }
+}

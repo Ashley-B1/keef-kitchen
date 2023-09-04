@@ -333,14 +333,16 @@ const keefProducts = [
 const getProductData = id => {
   let selectedProduct;
 
-  keefProducts.find(product => {
+  for (let i = 0; i <= keefProducts.length; i++) {
+    let product = keefProducts[i];
+
     if (product.id === id) {
       selectedProduct = product;
-      return selectedProduct;
+      return selectedProduct
     }
+  }
 
-    return "Product not found"
-  })
+  return "Product not located";
 };
 
 
