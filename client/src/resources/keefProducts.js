@@ -174,6 +174,37 @@ const keefProducts = [
     img: "/images/baked-goods/cupcakes.jpeg",
   },
   {
+    id: 16,
+    categoryId: 3,
+    name: "Mini Pack",
+    price: 40,
+    options: [
+      {
+        id: 1,
+        name: "Mini Cereal Bars",
+        flavors: ["strawberry", "fudge"],
+        choices: [
+          {
+            id: 1,
+            name: "mini cereal bar",
+            flavors: [
+              "rice crispy",
+              "fruity pebbles",
+              "cocoa pebbles",
+              "cinnamon toast crunch",
+            ],
+          },
+          {
+            id: 1,
+            name: "mini cookies",
+            flavors: ["chocolate chip", "strawberry", "oreo"],
+          },
+        ],
+      },
+    ],
+    img: "/images/baked-goods/fruty-crispy.jpeg",
+  },
+  {
     id: 9,
     categoryId: 4,
     name: "cookies",
