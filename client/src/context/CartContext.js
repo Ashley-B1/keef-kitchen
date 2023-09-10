@@ -1,5 +1,4 @@
 import { createContext, useState, useEffect } from "react";
-// import { getProductData } from "../resources/keefProducts";
 
 export const CartContext = createContext({
   items: [],
@@ -31,17 +30,42 @@ export const CartProvider = ({ children }) => {
     return quantity;
   };
 
-  const addToCart = (id, quantity, price, option, flavor, choice, choiceFlavor) => {
+  const addToCart = (id, name, quantity, priceId, price, option, flavor, choice, choiceFlavor) => {
     quantity = parseInt(quantity, 10);
   
     const existingProductIndex = cartProducts.findIndex((product) => product.id === id);
   
     if (existingProductIndex === -1) {
-      setCartProducts([...cartProducts, { id, quantity, price, option, flavor, choice, choiceFlavor }]);
+      setCartProducts([...cartProducts, { id, name, quantity, priceId, price, option, flavor, choice, choiceFlavor }]);
     } else {
       const updatedCart = [...cartProducts];
       updatedCart[existingProductIndex].quantity += quantity;
       setCartProducts(updatedCart);
+    }
+  };
+
+  const addOneToCart = id => {
+    const quantity = getProductQuantity(id);
+
+    if (!quantity) {
+      setCartProducts(
+        [
+          ...cartProducts,
+          {
+            id,
+            quantity: 1
+          }
+        ]
+      )
+    } else {
+      setCartProducts(
+        cartProducts.map(
+          product => 
+          product.id === id
+          ? { ...product, quantity: product.quantity + 1 }
+          : product
+        )
+      )
     }
   };
 
@@ -83,6 +107,7 @@ export const CartProvider = ({ children }) => {
     items: cartProducts,
     getProductQuantity,
     addToCart,
+    addOneToCart,
     removeOneFromCart,
     deleteFromCart,
     getTotalCost,

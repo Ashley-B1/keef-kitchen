@@ -17,11 +17,13 @@ const CartProduct = ({
   const cart = useContext(CartContext);
   const productData = getProductData(id);
 
+  const isButtonDisabled = option === "multiple" && quantity < 3;
+
   return (
     <div className="mo-products">
       <h3>{productData.name}</h3>
       <p>{quantity === 1 ? `${quantity} item` : `${quantity} items`}</p>
-      <p>{option} {flavor.length ? `(${flavor})` : ""}</p>
+      <p>{option} {flavor?.length ? `(${flavor})` : ""}</p>
       {choice && (
         <>
         <p>And:</p>
@@ -29,11 +31,11 @@ const CartProduct = ({
         </>
       )}
       <div className="price-adjust">
-        <button className="minus" onClick={() => cart.removeOneFromCart(id)}>-</button>
+        <button disabled={isButtonDisabled} className="minus" onClick={() => cart.removeOneFromCart(id)}>-</button>
         <p>
           ${productData.price ? quantity * productData.price : quantity * price}
         </p>
-        <button className="add" onClick={() => cart.addToCart(id, 1)}>+</button>
+        <button className="add" onClick={() => cart.addOneToCart(id)}>+</button>
       </div>
       <div className="modal-btns">
         <button onClick={() => cart.deleteFromCart(id)}>Remove</button>

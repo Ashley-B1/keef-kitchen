@@ -1,6 +1,6 @@
 const keefProducts = [
   {
-    id: 1,
+    id: "price_1NnpzoA3GTTdgxGLOPZtitJL",
     categoryId: 1,
     name: "Candy Bags",
     price: 10,
@@ -25,17 +25,17 @@ const keefProducts = [
     img: "/images/candy/sour-patch1.jpeg",
   },
   {
-    id: 2,
+    id: "prod_Ob24vpanVRdLmH",
     categoryId: 1,
     name: "Nerds Ropes",
     options: [
       {
-        id: 1,
+        id: "price_1Nnq0KA3GTTdgxGLQ8u1Jlbe",
         name: "single",
         price: 15,
       },
       {
-        id: 2,
+        id: "price_1Nnq0KA3GTTdgxGLCsvVc2w5",
         name: "multiple",
         price: 10,
       },
@@ -43,7 +43,7 @@ const keefProducts = [
     img: "/images/candy/nerds-candy.jpeg",
   },
   {
-    id: 3,
+    id: "price_1Nnq0dA3GTTdgxGLIXNTbh66",
     categoryId: 2,
     name: "Wings (6 piece)",
     price: 15,
@@ -64,7 +64,7 @@ const keefProducts = [
     img: "/images/savory/hot-wangz-2.jpeg",
   },
   {
-    id: 4,
+    id: "price_1Nnq0xA3GTTdgxGL5MRO7SzE",
     categoryId: 2,
     name: "Chip Bag",
     price: 10,
@@ -89,7 +89,7 @@ const keefProducts = [
     img: "https://www.mondaq.com/images/article_images/1339792d.jpg",
   },
   {
-    id: 5,
+    id: "price_1Nnq1PA3GTTdgxGLhwNzLxxX",
     categoryId: 3,
     name: "Majestic",
     price: 25,
@@ -111,7 +111,7 @@ const keefProducts = [
     img: "/images/baked-goods/combo-box.jpeg",
   },
   {
-    id: 6,
+    id: "price_1Nnq1cA3GTTdgxGLgLcfBsyK",
     categoryId: 3,
     name: "Powerhouse",
     price: 25,
@@ -125,7 +125,7 @@ const keefProducts = [
     img: "/images/baked-goods/cupcakes.jpeg",
   },
   {
-    id: 7,
+    id: "price_1Nnq1sA3GTTdgxGLzyql8lk3",
     categoryId: 3,
     name: "Surprise Pack",
     price: 50,
@@ -138,7 +138,7 @@ const keefProducts = [
     img: "/images/baked-goods/strawberry-cake.jpeg",
   },
   {
-    id: 8,
+    id: "price_1Nnq2CA3GTTdgxGLDVqB5xBS",
     categoryId: 3,
     name: "Party Pack",
     price: 100,
@@ -174,14 +174,14 @@ const keefProducts = [
     img: "/images/baked-goods/cupcakes.jpeg",
   },
   {
-    id: 16,
+    id: "price_1Nnq2XA3GTTdgxGLwHByCpUl",
     categoryId: 3,
     name: "Mini Pack",
     price: 40,
     options: [
       {
         id: 1,
-        name: "Mini Cereal Bars",
+        name: "Mini Brownies",
         flavors: ["strawberry", "fudge"],
         choices: [
           {
@@ -202,21 +202,21 @@ const keefProducts = [
         ],
       },
     ],
-    img: "/images/baked-goods/fruty-crispy.jpeg",
+    img: "/images/baked-goods/mini-cookies.jpeg",
   },
   {
-    id: 9,
+    id: "prod_Ob27fWNe1zxZyK",
     categoryId: 4,
-    name: "cookies",
+    name: "Cookies",
     options: [
       {
-        id: 1,
+        id: "price_1Nnq3bA3GTTdgxGLndlOVoUZ",
         name: "single",
         price: 8,
         flavors: ["chocolate chip", "strawberry", "oreo"],
       },
       {
-        id: 2,
+        id: "price_1Nnq3bA3GTTdgxGLaaWiByRX",
         name: "triple",
         price: 15,
         flavors: ["chocolate chip", "strawberry", "oreo"],
@@ -225,24 +225,24 @@ const keefProducts = [
     img: "/images/baked-goods/cookie-box.jpeg"
   },
   {
-    id: 10,
+    id: "prod_Ob2E2dHGlnsPNc",
     categoryId: 4,
     name: "brownies",
     options: [
       {
-        id: 1,
+        id: "price_1Nnq9eA3GTTdgxGLHfsh39io",
         name: "single",
         price: 5,
         flavors: ["fudge", "strawberry"],
       },
       {
-        id: 2,
+        id: "price_1Nnq9eA3GTTdgxGLvvOMrwS2",
         name: "whole large pan",
         price: 40,
         flavors: ["fudge", "strawberry"],
       },
       {
-        id: 3,
+        id: "price_1Nnq9eA3GTTdgxGLHr1QTxUN",
         name: "whole small pan",
         price: 25,
         flavors: ["fudge", "strawberry"],
@@ -251,18 +251,18 @@ const keefProducts = [
     img: "/images/baked-goods/brownie-box.jpeg"
   },
   {
-    id: 11,
+    id: "prod_Ob2FMRXiANgCwJ",
     categoryId: 4,
     name: "cupcakes",
     options: [
       {
-        id: 1,
+        id: "price_1NnqAeA3GTTdgxGLE1wVduYr",
         name: "single",
         price: 8,
         flavors: ["vanilla", "strawberry", "red velvet"],
       },
       {
-        id: 2,
+        id: "price_1NnqAeA3GTTdgxGLbKOnJNnv",
         name: "dozen",
         price: 75,
         flavors: ["vanilla", "strawberry", "red velvet"],
@@ -271,7 +271,7 @@ const keefProducts = [
     img: "/images/baked-goods/cupcakes.jpeg"
   },
   {
-    id: 12,
+    id: "price_1NnqArA3GTTdgxGLgtzc6dqw",
     categoryId: 4,
     name: "mini bundt cakes",
     options: [
@@ -285,12 +285,12 @@ const keefProducts = [
     img: "/images/baked-goods/bundt-cakes.jpeg"
   },
   {
-    id: 13,
+    id: "prod_Ob2GYr1Ghjv4CP",
     categoryId: 4,
     name: "cereal bars",
     options: [
       {
-        id: 1,
+        id: "price_1NnqBVA3GTTdgxGLuU3FOOIE",
         name: "single",
         price: 8,
         flavors: [
@@ -301,7 +301,7 @@ const keefProducts = [
         ],
       },
       {
-        id: 2,
+        id: "price_1NnqBVA3GTTdgxGLPTBG8Pt8",
         name: "whole small pan",
         price: 25,
         flavors: [
@@ -312,7 +312,7 @@ const keefProducts = [
         ],
       },
       {
-        id: 3,
+        id: "price_1NnqBVA3GTTdgxGLjrz170yW",
         name: "whole large pan",
         price: 40,
         flavors: [
@@ -326,18 +326,18 @@ const keefProducts = [
     img: "/images/baked-goods/fruty-crispy.jpeg"
   },
   {
-    id: 14,
+    id: "prod_Ob2GwlhExRqrWq",
     categoryId: 4,
     name: "cheesecake",
     options: [
       {
-        id: 1,
+        id: "price_1NnqC2A3GTTdgxGLZGKzBG2P",
         name: "mini",
         price: 10,
         flavors: ["NY style", "strawberry", "oreo"],
       },
       {
-        id: 2,
+        id: "price_1NnqC2A3GTTdgxGLnGRuA4mI",
         name: "whole",
         price: 40,
         flavors: ["NY style", "strawberry", "oreo"],
@@ -346,7 +346,7 @@ const keefProducts = [
     img: "/images/baked-goods/cheesecake.jpeg"
   },
   {
-    id: 15,
+    id: "price_1NnqCKA3GTTdgxGLtcpWtzzz",
     categoryId: 4,
     name: "donuts",
     price: 6,
@@ -364,7 +364,7 @@ const keefProducts = [
 const getProductData = id => {
   let selectedProduct;
 
-  for (let i = 0; i <= keefProducts.length; i++) {
+  for (let i = 0; i < keefProducts.length; i++) {
     let product = keefProducts[i];
 
     if (product.id === id) {

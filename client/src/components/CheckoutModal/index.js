@@ -8,8 +8,24 @@ import { CartContext } from "../../context/CartContext";
 
 const CheckoutModal = ({ isOpen, onRequestClose, cartItems }) => {
   const cart = useContext(CartContext);
-
   const total = cart.getTotalCost();
+  console.log("HELLO")
+
+  const checkout = async () => {
+    await fetch(`http://localhost:5001/checkout`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ items: cart.items })
+    }).then(res => {
+      return res.json();
+    }).then(res => {
+      res.url && window.location.assign(res.url);
+    }).catch(e => {
+      console.log(e)
+    })
+  }
 
   return (
     <Modal
@@ -35,6 +51,7 @@ const CheckoutModal = ({ isOpen, onRequestClose, cartItems }) => {
         ))}
 
         <h3>Total: {total}</h3>
+        <button onClick={checkout} className="checkout">Checkout</button>
       </div>
     </Modal>
   );

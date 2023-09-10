@@ -11,10 +11,9 @@ const ProductPage = () => {
   const { id } = useParams();
 
   const cart = useContext(CartContext);
+  const isPriceId = id => typeof id === "string" && id.includes("price");
 
-  const selectedProduct = keefProducts.find(
-    (product) => product.id === Number(id)
-  );
+  const selectedProduct = keefProducts.find((product) => product.id === id);
   const category = categories.find(
     (cat) => cat.id === selectedProduct.categoryId
   );
@@ -27,15 +26,25 @@ const ProductPage = () => {
   const [selectedPrice, setSelectedPrice] = useState(
     selectedProduct.price || selectedProduct.options[0].price
   );
+  const [selectedPriceId, setSelectedPriceId] = useState(isPriceId(selectedProduct.id) ? selectedProduct.id : selectedProduct.options[0].id);
   const [quantity, setQuantity] = useState(1);
   const [selectedChoice, setSelectedChoice] = useState(
     selectedOption.choices && selectedOption.choices[0]
   );
 
   const handleAddToCart = () => {
-    cart.addToCart(selectedProduct.id, parseInt(quantity, 10), selectedPrice, selectedOption, selectedFlavors, selectedChoice, selectedChoiceFlavors);
+    cart.addToCart(
+      selectedProduct.id,
+      selectedProduct.name,
+      parseInt(quantity, 10),
+      selectedPriceId,
+      selectedPrice,
+      selectedOption,
+      selectedFlavors,
+      selectedChoice,
+      selectedChoiceFlavors
+    );
   };
-
 
   const handleChoiceChange = (choice) => {
     setSelectedChoice(choice);
@@ -46,6 +55,8 @@ const ProductPage = () => {
     setSelectedFlavors([]);
     setSelectedChoiceFlavors([]);
     setSelectedPrice(option.price || selectedProduct.price);
+
+    if (isPriceId(selectedOption.id)) setSelectedPriceId(option.id);
 
     if (option.name === "multiple") {
       setQuantity(2);
@@ -79,17 +90,6 @@ const ProductPage = () => {
   const totalPrice = () => {
     const optionPrice = selectedPrice || 0;
     return optionPrice * quantity;
-
-    // console.log("Selected Option:", selectedOption);
-    // console.log("Quantity:", quantity);
-
-    // if (selectedOption && quantity > 0) {
-    //   console.log("Calculating price...");
-    //   console.log(selectedOption?.price * quantity)
-    //   return selectedOption?.price * quantity;
-    // }
-
-    // return 0;
   };
 
   return (
@@ -194,9 +194,7 @@ const ProductPage = () => {
                 />
               </div>
             </div>
-            <button onClick={handleAddToCart}>
-              Add To Cart
-            </button>
+            <button onClick={handleAddToCart}>Add To Cart</button>
           </div>
         </div>
         <div className="more-products">

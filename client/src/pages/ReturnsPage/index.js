@@ -4,13 +4,15 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import "./ReturnsPage.scss";
+import { Link } from "react-router-dom";
 
-const falseTerms = [
-  "Officia Lorem magna nisi et cupidatat elit et exercitation ad.",
-  "Officia Lorem magna nisi et cupidatat elit et exercitation ad.",
-  "Officia Lorem magna nisi et cupidatat elit et exercitation ad.",
-  "Officia Lorem magna nisi et cupidatat elit et exercitation ad.",
-  "Officia Lorem magna nisi et cupidatat elit et exercitation ad.",
+const refundTerms = [
+  "All product returns can only be returned if unopened with the stamp still intact",
+  "You will be refunded via the original payment method used for the purchase.",
+  "No returns will be offered on products ordered in error, or if customer decides they do not want the product.",
+  "All prices are final at the time of purchase.",
+  "Product sent in error can be returned to the sender.",
+  "The owner reserves the right to refuse any request for a refund.",
 ];
 
 const refundReasons = [
@@ -84,17 +86,13 @@ const ReturnsPage = () => {
           <section className="ship-info">
             <h4>Shipping</h4>
             <p>
-              Officia Lorem magna nisi et cupidatat elit et exercitation ad.
-              Anim reprehenderit duis dolor exercitation consequat sunt ipsum.
-              Ullamco ex velit dolore commodo ea irure sit sint excepteur qui
-              tempor irure non. Est adipisicing in est commodo dolor. Est est
-              velit velit ad adipisicing minim Lorem id.
+              Products are shipped directly from the sender/owner located in the DFW area. Products typically are delivered within 2-3 business days, with some exceptions. The cost of shipping is $5.00 and additional costs may occur. We also offer delivery dependent on location in DFW. Please reach out for more information using the <Link to="/contact" className="link in-line">Contact page</Link>! Your patience is appreciated as we work safely to serve you.
             </p>
           </section>
           <section className="return-info">
             <h4>Product Returns</h4>
             <ul>
-              {falseTerms.map((term, i) => (
+              {refundTerms.map((term, i) => (
                 <li key={i}>{term}</li>
               ))}
             </ul>
