@@ -6,4 +6,21 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  h4 {
+    font-weight: 500;
+
+    .in-line {
+      text-decoration: underline;
+      text-transform: capitalize;
+      color: #fe8fe8;
+      border-radius: 5px;
+
+      &:hover {
+        background-color: #fe8fe8;
+        color: #000;
+        transition: ease-in-out 0.5s;
+      }
+    }
+  }
 }

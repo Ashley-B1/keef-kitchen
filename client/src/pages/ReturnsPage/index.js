@@ -86,7 +86,7 @@ const ReturnsPage = () => {
           <section className="ship-info">
             <h4>Shipping</h4>
             <p>
-              Products are shipped directly from the sender/owner located in the DFW area. Products typically are delivered within 2-3 business days, with some exceptions. The cost of shipping is $5.00 and additional costs may occur. We also offer delivery dependent on location in DFW. Please reach out for more information using the <Link to="/contact" className="link in-line">Contact page</Link>! Your patience is appreciated as we work safely to serve you.
+              Products are shipped directly from the sender/owner located in the DFW area. Products typically are delivered within 2-3 business days, with some exceptions. The cost of shipping is $8.00 and additional costs may occur. We also offer delivery dependent on location in DFW. Please reach out for more information using the <Link to="/contact" className="link in-line">Contact page</Link>! Your patience is appreciated as we work safely to serve you.
             </p>
           </section>
           <section className="return-info">

@@ -13,14 +13,13 @@ app.use(express.static('public'));
 app.use(express.json());
 
 app.post(("/checkout"), async (req, res) => {
-  const items = req.body.items;
+  const { items, shipping_info } = req.body;
   let lineItems = [];
   
   items.forEach(item => {
     const description = generateDescription(item);
 
     lineItems.push({
-      // price: item.priceId,
       price_data: {
         currency: 'usd',
         product_data: {
@@ -30,9 +29,21 @@ app.post(("/checkout"), async (req, res) => {
         unit_amount: item.price * 100,
       },
       quantity: item.quantity,
-      // // add sku number
-      // description: `Flavor: ${item.flavor}`,
     })
+  });
+
+  const shippingCost = 8;
+
+  lineItems.push({
+    price_data: {
+      currency: 'usd',
+      product_data: {
+        name: 'Shipping',
+        description: 'Shipping Cost',
+      },
+      unit_amount: shippingCost * 100, // Convert to cents
+    },
+    quantity: 1,
   });
   
   const session = await stripe.checkout.sessions.create({
@@ -41,6 +52,9 @@ app.post(("/checkout"), async (req, res) => {
     mode: 'payment',
     success_url: "http://localhost:3000/success",
     cancel_url: "http://localhost:3000/products",
+    shipping_address_collection: {
+      allowed_countries: ['US'],
+    },
   });
 
   res.send(JSON.stringify({
@@ -55,7 +69,7 @@ const generateDescription = item => {
     description += `, Main Flavor: ${item.flavor}`;
   }
 
-  if (item.choice && item.choice.length > 0) {
+  if (item.choice) {
     description += `, Choice: ${item.choice.name}`;
   }
 

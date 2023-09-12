@@ -10,7 +10,7 @@ export const CartContext = createContext({
 });
 
 export const CartProvider = ({ children }) => {
-    const initialCart = JSON.parse(localStorage.getItem('cart')) || [];
+  const initialCart = JSON.parse(localStorage.getItem('cart')) || [];
 
   const [cartProducts, setCartProducts] = useState(initialCart);
 

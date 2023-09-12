@@ -19,6 +19,7 @@ import ContactPage from "./pages/ContactPage"
 import ReturnsPage from "./pages/ReturnsPage";
 import TurnAroundPage from "./pages/TurnAroundPage";
 import NotFoundPage from "./pages/NotFoundPage";
+import SuccessPage from "./pages/SuccessPage";
 
 const Layout = () => {
   const location = useLocation();
@@ -70,6 +71,10 @@ const router = createBrowserRouter([
       {
         path: '/turnaround',
         element: <TurnAroundPage />
+      },
+      {
+        path: '/success',
+        element: <SuccessPage />
       },
       {
         path: '*',
