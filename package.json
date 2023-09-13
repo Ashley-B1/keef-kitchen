@@ -4,7 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "heroku-postbuild": "npm run build --prefix client",
+    "install": "npm --prefix server install server && npm --prefix client install client",
+    "dev:server": "npm install --prefix server start",
+    "dev:client": "npm install --prefix client start",
+    "start": "npm start --prefix server"
   },
   "repository": {
     "type": "git",
