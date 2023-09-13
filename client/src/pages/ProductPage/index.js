@@ -11,7 +11,7 @@ const ProductPage = () => {
   const { id } = useParams();
 
   const cart = useContext(CartContext);
-  const isPriceId = id => typeof id === "string" && id.includes("price");
+  const isPriceId = (id) => typeof id === "string" && id.includes("price");
 
   const selectedProduct = keefProducts.find((product) => product.id === id);
   const category = categories.find(
@@ -21,12 +21,17 @@ const ProductPage = () => {
   const [selectedOption, setSelectedOption] = useState(
     selectedProduct.options[0]
   );
-  const [selectedFlavors, setSelectedFlavors] = useState([]);
-  const [selectedChoiceFlavors, setSelectedChoiceFlavors] = useState([]);
+  const [selectedFlavor, setSelectedFlavors] = useState("");
+  const [selectedChoiceFlavors, setSelectedChoiceFlavors] = useState("");
+
   const [selectedPrice, setSelectedPrice] = useState(
     selectedProduct.price || selectedProduct.options[0].price
   );
-  const [selectedPriceId, setSelectedPriceId] = useState(isPriceId(selectedProduct.id) ? selectedProduct.id : selectedProduct.options[0].id);
+  const [selectedPriceId, setSelectedPriceId] = useState(
+    isPriceId(selectedProduct.id)
+      ? selectedProduct.id
+      : selectedProduct.options[0].id
+  );
   const [quantity, setQuantity] = useState(1);
   const [selectedChoice, setSelectedChoice] = useState(
     selectedOption.choices && selectedOption.choices[0]
@@ -40,7 +45,7 @@ const ProductPage = () => {
       selectedPriceId,
       selectedPrice,
       selectedOption,
-      selectedFlavors,
+      selectedFlavor,
       selectedChoice,
       selectedChoiceFlavors
     );
@@ -66,21 +71,11 @@ const ProductPage = () => {
   };
 
   const handleFlavorToggle = (flavor) => {
-    if (selectedFlavors.includes(flavor)) {
-      setSelectedFlavors(selectedFlavors.filter((fl) => fl !== flavor));
-    } else {
-      setSelectedFlavors([...selectedFlavors, flavor]);
-    }
+    setSelectedFlavors(flavor);
   };
 
   const handleChoiceFlavorToggle = (flavor) => {
-    if (selectedChoiceFlavors.includes(flavor)) {
-      setSelectedChoiceFlavors(
-        selectedChoiceFlavors.filter((fl) => fl !== flavor)
-      );
-    } else {
-      setSelectedChoiceFlavors([...selectedChoiceFlavors, flavor]);
-    }
+    setSelectedChoiceFlavors(flavor);
   };
 
   const handleQuantityChange = (e) => {
@@ -132,7 +127,7 @@ const ProductPage = () => {
                         }
                         name="flavors"
                         value={flavor}
-                        checked={selectedFlavors.includes(flavor)}
+                        checked={selectedFlavor === flavor}
                         onChange={() => handleFlavorToggle(flavor)}
                       />
                       <label key={flavor}>{flavor}</label>
@@ -170,7 +165,7 @@ const ProductPage = () => {
                             : "checkbox"
                         }
                         value={sf}
-                        checked={selectedChoiceFlavors.includes(sf)}
+                        checked={selectedChoiceFlavors === sf}
                         onChange={() => handleChoiceFlavorToggle(sf)}
                       />
                       <label key={sf}>{sf}</label>

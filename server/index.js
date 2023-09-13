@@ -13,7 +13,7 @@ app.use(express.static('public'));
 app.use(express.json());
 
 app.post(("/checkout"), async (req, res) => {
-  const { items, shipping_info } = req.body;
+  const { items } = req.body;
   let lineItems = [];
   
   items.forEach(item => {
