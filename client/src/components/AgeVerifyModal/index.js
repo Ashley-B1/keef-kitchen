@@ -10,6 +10,7 @@ const AgeVerifyModal = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [userBirthDate, setUserBirthDate] = useState("");
   const [shouldRedirect, setShouldRedirect] = useState(false);
+  // const [userAge, setUserAge] = useState(null);
 
   useEffect(() => {
     const hasModalBeenShown = localStorage.getItem('modalShown');
@@ -20,35 +21,36 @@ const AgeVerifyModal = () => {
 
   }, []);
 
-  useEffect(() => {
-    const ageVerify = () => {
-      const legalAge = 18;
+  const handleVerifyAge = () => {
+    const legalAge = 18;
 
-      if (userBirthDate) {
-        const currentDate = new Date();
-        const userDate = new Date(userBirthDate);
-        const userAge = currentDate.getFullYear() - userDate.getFullYear();
+    if (userBirthDate) {
+      const currentDate = new Date();
+      const [month, day, year] = userBirthDate.split("/");
+      const userDate = new Date(year, month - 1, day);
+      const userAge = currentDate.getFullYear() - userDate.getFullYear();
 
-        if (userAge >= legalAge) {
-          setIsOpen(false);
-          localStorage.setItem("modalShown", "true");
-        } else {
-          setShouldRedirect(true)
-        }
+      if (userAge >= legalAge) {
+        setIsOpen(false);
+        localStorage.setItem("modalShown", "true");
+      } else {
+        setShouldRedirect(true);
       }
-    };
+    }
+  };
 
-    ageVerify();
-  }, [userBirthDate]);
+  const handleCalculateAge = () => {
+    handleVerifyAge();
+  };
 
   if (shouldRedirect) {
-    return <Navigate to='/turnaround' />
+    return <Navigate to='/turnaround' />;
   }
 
   return (
     <Modal
       isOpen={isOpen}
-      onRequestClose={() => setIsOpen(false)}
+      shouldCloseOnOverlayClick={false}
       className="av-modal"
       overlayClassName="modal-overlay"
     >
@@ -61,10 +63,14 @@ const AgeVerifyModal = () => {
         </p>
         <label>Enter your birthdate:</label>
         <input
-          type="date"
+          type="text"
+          placeholder="MM/DD/YYYY"
           value={userBirthDate}
           onChange={(e) => setUserBirthDate(e.target.value)}
+          maxLength="10"
+          onBlur={handleVerifyAge}
         />
+        <button onClick={handleCalculateAge}>Calculate Age</button>
       </div>
     </Modal>
   );
