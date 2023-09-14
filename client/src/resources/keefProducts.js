@@ -46,6 +46,7 @@ const keefProducts = [
     id: "price_1NpdNjA3GTTdgxGLNDg9cuVa",
     categoryId: 2,
     name: "Wings (6 piece)",
+    disclaimer: "Delivery only",
     price: 15,
     options: [
       {
@@ -329,6 +330,7 @@ const keefProducts = [
     id: "prod_Oct8qyRiIiiOfb",
     categoryId: 4,
     name: "cheesecake",
+    disclaimer: "Delivery only",
     options: [
       {
         id: "price_1NpdMAA3GTTdgxGLAWvh0Qc0",

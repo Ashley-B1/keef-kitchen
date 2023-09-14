@@ -98,6 +98,9 @@ const ProductPage = () => {
             <div className="info">
               <h3>{category.name}</h3>
               <h2>{selectedProduct.name}</h2>
+              {selectedProduct.disclaimer && (
+                <h6>{selectedProduct.disclaimer}</h6>
+              )}
               <h5>${totalPrice()}</h5>
               <div className="options">
                 <h4>Options:</h4>

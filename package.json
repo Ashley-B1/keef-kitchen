@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "heroku-postbuild": "npm run build --prefix client",
+    "heroku-postbuild":"cd client && npm install && npm run build && cd ..",
     "install": "npm --prefix server install server && npm --prefix client install client",
     "dev:server": "npm install --prefix server start",
     "dev:client": "npm install --prefix client start",
