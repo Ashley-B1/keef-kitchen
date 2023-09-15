@@ -18,7 +18,7 @@ const Home = () => {
       <Categories data={categoryData} />
       <div className="del">
         <h4>
-          Would you like to have your items delivered? If so, please go the{" "}
+          Would you like to have your items delivered? If so, please go to the{" "}
           <Link to="/contact" className="in-line link">Contact Page</Link> to see if you're in the delivery area!
         </h4>
       </div>
