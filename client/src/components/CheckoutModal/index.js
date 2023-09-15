@@ -11,12 +11,13 @@ const CheckoutModal = ({ isOpen, onRequestClose, cartItems }) => {
   const total = cart.getTotalCost();
 
   const checkout = async () => {
+    console.log("Received checkout request");
     const data = {
       items: cart.items,
     };
 
     try {
-      const res = await fetch(`http://localhost:5001/checkout`, {
+      const res = await fetch(`https://thekeefkitchen-5ad8a18f7185.herokuapp.com/#/checkout`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -26,6 +27,7 @@ const CheckoutModal = ({ isOpen, onRequestClose, cartItems }) => {
 
       if (res.ok) {
         const resData = await res.json();
+        console.log("Stripe response data:", resData);
         if (resData.url) {
           window.location.assign(resData.url);
         }
