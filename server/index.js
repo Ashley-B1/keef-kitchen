@@ -7,7 +7,11 @@ require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 
-const app = express();
+const app = express({
+  origin: 'https://thekeefkitchen-5ad8a18f7185.herokuapp.com/',
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true,
+});
 app.use(cors());
 app.use(express.static(path.resolve(__dirname, '../client/build')));
 app.use(express.json());

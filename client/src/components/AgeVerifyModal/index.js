@@ -25,10 +25,23 @@ const AgeVerifyModal = () => {
     const legalAge = 18;
 
     if (userBirthDate) {
+      const dateFormat = /^(0[1-9]|1[0-2])\/(0[1-9]|[1-2][0-9]|3[0-1])\/\d{4}$/;
+      
+      if (!userBirthDate.match(dateFormat)) {
+        setShouldRedirect(true);
+        return;
+      }
+
       const currentDate = new Date();
       const [month, day, year] = userBirthDate.split("/");
       const userDate = new Date(year, month - 1, day);
       const userAge = currentDate.getFullYear() - userDate.getFullYear();
+
+      if (year.length < 4) {
+        // If the year is not in 4-digit format, set shouldRedirect to true
+        setShouldRedirect(true);
+        return;
+      }
 
       if (userAge >= legalAge) {
         setIsOpen(false);
