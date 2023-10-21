@@ -16,7 +16,7 @@ const CheckoutModal = ({ isOpen, onRequestClose, cartItems }) => {
     };
 
     try {
-      const res = await fetch(`https://thekeefkitchen-5ad8a18f7185.herokuapp.com/checkout`, {
+      const res = await fetch(`http://localhost:5001/checkout`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

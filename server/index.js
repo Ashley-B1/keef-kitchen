@@ -8,7 +8,7 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 
 const app = express({
-  origin: 'https://thekeefkitchen-5ad8a18f7185.herokuapp.com',
+  origin: 'https://keefkitchen.com/',
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true,
 });
@@ -58,8 +58,8 @@ app.post(("/checkout"), async (req, res) => {
     payment_method_types: ['card'],
     line_items: lineItems,
     mode: 'payment',
-    success_url: "https://thekeefkitchen-5ad8a18f7185.herokuapp.com/#/success",
-    cancel_url: "https://thekeefkitchen-5ad8a18f7185.herokuapp.com/#/products",
+    success_url: "http://localhost:3000/#/success",
+    cancel_url: "http://localhost:3000/#/products",
     shipping_address_collection: {
       allowed_countries: ['US'],
     },
